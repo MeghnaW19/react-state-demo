@@ -9,36 +9,35 @@ class ParentComponent extends React.Component {
     super(props);
     this.state = { value: '' };
     this.handleChange = this.handleChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+
   }
 
+  /** State demonstrated on parent. */
   handleChange(event) {
     this.setState({ value: event.target.value });
-  }
-  onSubmit(event) {
-    alert(this.state.value);
   }
 
   render() {
     return (
       <div>
         <h2>I am the Parent component</h2>
-        <p>{this.props.message}</p>
         <p>{this.state.inputMessage}</p>
         <form onSubmit={this.onSubmit}>
           <div>
-            <div>
-              <label>Input 1</label>
-              <input type="text" value={this.state.value} onChange={this.handleChange} />
-              <p>State value: {this.state.value}</p>
-            </div>
-            <div>
-              <button type="submit" value="Submit">Get Input</button>
-            </div>
+            <label>Input: </label>
+            <input type="text" value={this.state.value} onChange={this.handleChange} />
+            <p>State value: {this.state.value}</p>
           </div>
         </form>
-        <ChildComponent1 input = {this.state.value}></ChildComponent1>
-        <ChildComponent2 input = {this.state.value} ></ChildComponent2>
+        <table>
+          <tr>
+            <td width="30%"> <ChildComponent1 /></td>
+            {/* <td width="30%"> <ChildComponent1 input = {this.state.value}></ChildComponent1></td> */}
+            <td width="40%"></td>
+            <td> <ChildComponent2 /></td>
+            {/* <td width="30%"><ChildComponent2 input = {this.state.value}></ChildComponent2></td> */}
+          </tr>
+        </table>
       </div >
     );
   }
