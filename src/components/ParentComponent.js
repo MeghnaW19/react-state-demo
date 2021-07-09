@@ -38,7 +38,7 @@ class ParentComponent extends React.Component {
           </div>
         </form>
         <ChildComponent1 input = {this.state.value}></ChildComponent1>
-        <ChildComponent2 input = {this.state.value}></ChildComponent2>
+        <ChildComponent2 input = {this.state.value} ></ChildComponent2>
       </div >
     );
   }
